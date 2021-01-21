@@ -10,6 +10,8 @@ export default class Main extends Component {
    tarefas: [
 
    ],
+
+   index: -1,
  }
 
  handleChange = (event) => {
@@ -21,15 +23,24 @@ export default class Main extends Component {
  handleSubmit = (event) => {
    event.preventDefault();
    let { novaTarefa } = this.state;
-   const { tarefas } = this.state;
+   const { tarefas, index } = this.state;
    novaTarefa = novaTarefa.trim();
 
    if (tarefas.indexOf(novaTarefa) !== -1) return;
 
    const novasTarefas = [...tarefas];
-   this.setState({
-     tarefas: [...novasTarefas, novaTarefa],
-   });
+   if (index === -1) {
+     this.setState({
+       tarefas: [...novasTarefas, novaTarefa],
+       novaTarefa: '',
+     });
+   } else {
+     novasTarefas[index] = novaTarefa;
+     this.setState({
+       tarefas: [...novasTarefas],
+       index: -1,
+     });
+   }
  }
 
 handleDeleteTask = (event, index) => {
@@ -43,8 +54,11 @@ handleDeleteTask = (event, index) => {
 }
 
 handleEditTask = (event, index) => {
-  event.preventDefault();
-  console.log(index);
+  const { tarefas } = this.state;
+  this.setState({
+    index,
+    novaTarefa: tarefas[index],
+  });
 }
 
 render() {
