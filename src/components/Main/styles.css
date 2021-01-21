@@ -4,7 +4,7 @@
   margin: 80px auto;
   background: rgba(255, 255, 255, 0.9);
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px;
   border-radius: 4px;
   box-shadow: 1px 1px 5px 5px rgb(94, 93, 93);
   animation: moveDown 2s ease-out ;
@@ -55,3 +55,52 @@ h1{
 .form button:hover{
   background:#c53f53;
 }
+
+.list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.list li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+  background:#fff;
+  padding: 16px;
+  border-radius: 4px;
+  transition: transform 0.8s ease-out;
+}
+
+.list li:hover{
+  transform: translateX(10px);
+  background:#5abaf2;
+  cursor: pointer;
+}
+
+.list li strong{
+  width: 400px;
+  text-align: left;
+}
+.list li div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list li div:hover{
+  color:#000;
+}
+
+.list div svg{
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
