@@ -19,6 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/state-in-constructor': 'off',
     'react/jsx-filename-extension': 'off',
   },
 };
