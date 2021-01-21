@@ -32,38 +32,53 @@ export default class Main extends Component {
    });
  }
 
- render() {
-   const { novaTarefa, tarefas } = this.state;
-   return (
-     <>
-       <div className="main">
-         <h1> Lista de Tarefas</h1>
-         <form className="form" onSubmit={this.handleSubmit}>
-           <input
-             type="text"
-             onChange={this.handleChange}
-             value={novaTarefa}
-           />
-           <button type="submit">
-             <FaPlus size={16} />
-           </button>
-         </form>
+handleDeleteTask = (event, index) => {
+  event.preventDefault();
+  const { tarefas } = this.state;
+  const novasTarefas = [...tarefas];
+  novasTarefas.splice(index, 1);
+  this.setState({
+    tarefas: [...novasTarefas],
+  });
+}
 
-         <ul className="list">
-           {tarefas.map((tarefa) => (
-             <li key={tarefa}>
-               <strong>{tarefa}</strong>
-               <div className="icons">
-                 <FaEdit size={16} color="#c53f53" />
-                 <FaTrash size={16} color="#34632e" onClick={handleDeleteTask} />
+handleEditTask = (event, index) => {
+  event.preventDefault();
+  console.log(index);
+}
 
-               </div>
-             </li>
-           ))}
-         </ul>
-       </div>
+render() {
+  const { novaTarefa, tarefas } = this.state;
+  return (
+    <>
+      <div className="main">
+        <h1> Lista de Tarefas</h1>
+        <form className="form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={novaTarefa}
+          />
+          <button type="submit">
+            <FaPlus size={16} />
+          </button>
+        </form>
 
-     </>
-   );
- }
+        <ul className="list">
+          {tarefas.map((tarefa, index) => (
+            <li key={tarefa}>
+              <strong>{tarefa}</strong>
+              <div className="icons">
+                <FaEdit size={16} color="#c53f53" onClick={(event) => this.handleEditTask(event, index)} />
+                <FaTrash size={16} color="#34632e" onClick={(event) => this.handleDeleteTask(event, index)} />
+
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </>
+  );
+}
 }
