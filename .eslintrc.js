@@ -19,6 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/prop-types': 'off',
     'no-useless-return': 'off',
     'prefer-const': 'off',
     'no-console': 'off',

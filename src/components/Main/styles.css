@@ -26,78 +26,7 @@ h1{
   margin: 20px 0;
 }
 
- .form{
-  width: 100%;
-  max-width: 400px;
-  margin: 30px auto;
-  display: flex;
-  justify-content: center;
 
-}
-
-.form input{
-  height:40px;
-  flex:1;
-  border: 1px solid #ccc;
-  padding:0 20px;
-}
-
-.form button[type="submit"]{
-  height: 40px;
-  padding:0 20px;
-  width:70px;
-  color:#fff;
-  border: 0;
-  background:#f04c64;
-  transition:  background 0.8s ease-out;
-}
-
-.form button:hover{
-  background:#c53f53;
-}
-
-.list{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-
-}
-
-.list li{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 16px 0;
-  background:#fff;
-  padding: 16px;
-  border-radius: 4px;
-  transition: transform 0.8s ease-out;
-}
-
-.list li:hover{
-  transform: translateX(10px);
-  background:#5abaf2;
-  cursor: pointer;
-}
-
-.list li strong{
-  width: 400px;
-  text-align: left;
-}
-.list li div {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.list li div:hover{
-  color:#000;
-}
-
-.list div svg{
-  margin: 0 10px;
-  cursor: pointer;
-}
 
 
 
