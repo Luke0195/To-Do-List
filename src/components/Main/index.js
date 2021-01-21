@@ -8,12 +8,7 @@ export default class Main extends Component {
  state ={
    novaTarefa: '',
    tarefas: [
-     'Acordar',
-     'Tomar Café',
-     'Escovar os dentes',
-     'Ir Trabalhar',
-     'Estudar',
-     'Ir dormir',
+
    ],
  }
 
@@ -23,17 +18,27 @@ export default class Main extends Component {
    });
  }
 
+ handleSubmit = (event) => {
+   event.preventDefault();
+   let { novaTarefa } = this.state;
+   const { tarefas } = this.state;
+   novaTarefa = novaTarefa.trim();
+
+   if (tarefas.indexOf(novaTarefa) !== -1) return;
+
+   const novasTarefas = [...tarefas];
+   this.setState({
+     tarefas: [...novasTarefas, novaTarefa],
+   });
+ }
+
  render() {
    const { novaTarefa, tarefas } = this.state;
    return (
      <>
        <div className="main">
-         <p>
-
-           {novaTarefa}
-         </p>
          <h1> Lista de Tarefas</h1>
-         <form className="form">
+         <form className="form" onSubmit={this.handleSubmit}>
            <input
              type="text"
              onChange={this.handleChange}
@@ -50,7 +55,7 @@ export default class Main extends Component {
                <strong>{tarefa}</strong>
                <div className="icons">
                  <FaEdit size={16} color="#c53f53" />
-                 <FaTrash size={16} color="#34632e" />
+                 <FaTrash size={16} color="#34632e" onClick={handleDeleteTask} />
 
                </div>
              </li>

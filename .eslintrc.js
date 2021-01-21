@@ -19,6 +19,9 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-useless-return': 'off',
+    'prefer-const': 'off',
+    'no-console': 'off',
     'react/state-in-constructor': 'off',
     'react/jsx-filename-extension': 'off',
   },
