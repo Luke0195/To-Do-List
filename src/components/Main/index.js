@@ -14,6 +14,23 @@ export default class Main extends Component {
    index: -1,
  }
 
+ componentDidMount() {
+   const tarefas = JSON.parse(localStorage.getItem('@ToDoList:tarefas'));
+   if (!tarefas) return;
+
+   this.setState({
+     tarefas,
+   });
+ }
+
+ componentDidUpdate(prevProps, prevState) {
+   const { tarefas } = this.state;
+
+   if (tarefas === prevState.tarefas) return;
+
+   localStorage.setItem('@ToDoList:tarefas', JSON.stringify(tarefas));
+ }
+
  handleChange = (event) => {
    this.setState({
      novaTarefa: event.target.value,
